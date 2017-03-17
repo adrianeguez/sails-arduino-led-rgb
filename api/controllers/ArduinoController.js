@@ -8,16 +8,13 @@
 module.exports = {
   cambiarColor: function (req, res) {
     var parametros = req.allParams();
-    console.log(parametros);
-    console.log(parametros.red);
-    console.log(parametros.blue);
-    console.log(parametros.green);
     sails.config.johnny.led.color({
       red: Number(parametros.red),
       blue: Number(parametros.blue),
       green: Number(parametros.green)
     });
-
-    return res.ok();
+    return res.ok({
+      respuesta:"Se actualizo el led"
+    });
   }
 };
